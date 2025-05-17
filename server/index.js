@@ -26,12 +26,13 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api", apiRoutes);
-app.get("*", function (req, res) {
-  res.sendFile("index.html", { root: __dirname });
+app.get("*any", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 const PORT = process.env.PORT || 8080;
 const HOST = "0.0.0.0";
+
 mongoose.connection.once("open", async () => {
   console.log("DATABASE Connected!");
   app.listen(PORT, HOST, () => {

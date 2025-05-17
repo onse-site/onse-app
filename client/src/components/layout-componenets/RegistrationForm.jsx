@@ -38,7 +38,7 @@ const RegistrationForm = () => {
     }
   };
   return (
-    <div className="w-full h-full fixed  z-10 flex items-center justify-center text-right">
+    <div className="w-full h-full fixed  z-15 flex items-center justify-center text-right">
       <form
         className="flex w-[80%] md:w-md  flex-col gap-4 p-6 !bg-white rounded-lg shadow-md"
         onClick={(e) => e.stopPropagation()}

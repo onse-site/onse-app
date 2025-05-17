@@ -40,7 +40,7 @@ const Content = () => {
             <Carousel Element={Member} Items={members} />
           </div>
 
-          <div className="lg:flex hidden items-center justify-center my-4 gap-x-4 overflow-hidden">
+          <div className="lg:flex hidden items-center overflow-x-auto scrollbar-hidden justify-center my-4 gap-x-4 overflow-hidden">
             {members?.map((member, index) => {
               return <Member key={index} props={member} />;
             })}
