@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "app": "concurrently \"(rm -rf ./server/public/* && cd client && npm run build && cp -r dist/* ../server/public/)\" \"(cd server && npm run server)\"",
+    "build": "rm -rf ./server/public/* && cd client && npm run build && cp -r dist/* ../server/public/",
     "dev": "concurrently \"(cd client && npm run build && cp -r dist/* ../server/public/)\" \"(cd server && npm run server)\""
   },
   "keywords": [],
