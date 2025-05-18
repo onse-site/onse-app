@@ -10,8 +10,14 @@ import Layout from "./Layout";
 import Providers from "./components/utility-componenets/Providers";
 // Home page
 import Index from "./pages/Index";
-// Not found page
-import NotFound from "./pages/NotFound";
+
+// Organization pages
+import SecritaryGeneralIndexPage from "./pages/orgnization/secratary-general/Index";
+import NationalOfficeIndexPage from "./pages/orgnization/national-office/Index";
+import ProvincialOfficesIndexPage from "./pages/orgnization/provinencial-offices/Index.jsx";
+
+// Dashboard page
+import Dashboard from "./pages/dashboard/Dashboard";
 
 // Footer links pages
 import About from "./pages/footer/About";
@@ -19,11 +25,10 @@ import ServicePolicy from "./pages/footer/ServicePolicy";
 import LicensingPolicy from "./pages/footer/LicensingPolicy";
 import ContactInformation from "./pages/footer/ContactInformation";
 
-// Organization pages
-import SecritaryGeneralIndexPage from "./pages/orgnization/secratary-general/Index";
-import NationalOfficeIndexPage from "./pages/orgnization/national-office/Index";
-import ProvincialOfficesIndexPage from "./pages/orgnization/provinencial-offices/Index.jsx";
+// Not found page
+import NotFound from "./pages/NotFound";
 
+// shared components
 import AddPost from "./components/posts-componenets/AddPost.jsx";
 import EditPost from "./components/posts-componenets/EditePost.jsx";
 import ManegeProfile from "./components/layout-componenets/ManegeProfile.jsx";
@@ -36,6 +41,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             {/* The home page route */}
             <Route index element={<Index />} />
+
             {/* The organization route */}
             <Route path="organization">
               {/* The secritary general route */}
@@ -55,6 +61,12 @@ function App() {
               <Route path="edit-post/:id" element={<EditPost />} />
               <Route path="edit-profile/:id" element={<ManegeProfile />} />
             </Route>
+
+            {/* The Dashboard route */}
+            <Route path="dashboard">
+              <Route index element={<Dashboard />} />
+            </Route>
+
             {/* The footer links  route */}
             <Route path="links">
               <Route path="about" element={<About />} />
@@ -62,6 +74,8 @@ function App() {
               <Route path="licensing-policy" element={<LicensingPolicy />} />
               <Route path="contacts-info" element={<ContactInformation />} />
             </Route>
+
+            {/* The not found route */}
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

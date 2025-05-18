@@ -34,11 +34,12 @@ const SideBar = () => {
 
   if (!offices) {
     return (
-      <div className="flex items-center justify-center h-full my-40">
+      <div className="w-full h-[calc(100vh_-_300px)] flex items-center justify-center">
         <Spinner aria-label="Extra large spinner example" size="xl" />
       </div>
     );
   }
+
   return (
     <div className="flex relative flex-col lg:flex-row lg:gap-x-2">
       <button
@@ -72,11 +73,11 @@ const SideBar = () => {
         className={`
     ${
       isOpen
-        ? "fixed left-1/2 -translate-x-1/2 z-10 lg:fixed lg:right-1/2 lg:-translate-x-[-37.55rem]"
+        ? "fixed left-1/2 -translate-x-1/2 z-2 lg:absolute lg:top-[2rem] lg:right-1/2 lg:-translate-x-[-37.55rem]"
         : "hidden lg:block"
     }
-    lg:fixed lg:w-[20rem] lg:top-[12rem] lg:right-4 lg:z-9
-    w-[92%] top-[11.5rem] h-[calc(100vh_-_22rem)]
+    lg:absolute lg:w-[20rem] lg:top-[2rem] lg:right-4 lg:z-2
+    w-[92%] top-[11.5rem]  h-full
   `}
         aria-label="Sidebar"
       >

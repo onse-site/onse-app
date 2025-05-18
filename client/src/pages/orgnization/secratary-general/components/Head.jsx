@@ -35,11 +35,11 @@ const Head = () => {
 
   return (
     <div className="flex flex-col items-center justify-end gap-y-6 h-full  rounded-b-2xl w-full my-8">
-      <div className="mx-4">
-        <div className="items-center  justify-end bg-gray-50 rounded-lg shadow sm:flex border-2 border-gray-300 ">
+      <div className="mx-4 w-[90%] lg:w-[60%]">
+        <div className="items-center justify-end bg-gray-50 rounded-lg shadow sm:flex border-2 border-gray-300 ">
           <Link to="#" className="md:hidden">
             <img
-              className={` md:w-[300px] md:h-[300px] w-full h-[300px] rounded-lg sm:rounded-none lg:sm:rounded-r-lg shadow-2xl  border-2 border-[#5b5b5b] outline-none ring-0 ${
+              className={`w-full h-[300px] rounded-lg sm:rounded-none lg:sm:rounded-r-lg shadow-2xl  border-2 border-[#5b5b5b] outline-none ring-0 ${
                 !info.avatar
                   ? "bg-gradient-to-r from-gray-300 via-gray-200 to-white animate-pulse  overflow-hidden"
                   : ""
@@ -47,6 +47,7 @@ const Head = () => {
               src={info.avatar ? info.avatar : ""}
             />
           </Link>
+
           <div className="p-5 ">
             <h3 className="text-4xl text-right font-bold tracking-tight text-gray-700  ">
               <Link href="#"> {info.name}</Link>
@@ -56,7 +57,7 @@ const Head = () => {
               </span>
             </h3>
 
-            <p className="mt-3 mb-4 lg:my-4 lg:max-w-[40rem] font-light text-gray-700 text-right ">
+            <p className="mt-3 mb-4 lg:my-4  break-words lg:max-w-[40rem] word-break font-light text-gray-700 text-right ">
               {info.bio}
             </p>
             <ul className="flex justify-end space-x-4 sm:mt-0">
@@ -92,7 +93,7 @@ const Head = () => {
           </div>
           <Link href="#" className="hidden md:block">
             <img
-              className={` lg:w-[300px] md:w-[900px] md:h-[300px] w-full h-[300px] rounded-lg sm:rounded-none lg:sm:rounded-r-lg shadow-2xl  border-2 border-[#5b5b5b] outline-none ring-0 ${
+              className={`lg:w-[300px] md:w-[900px] md:h-[300px] w-full h-[300px] rounded-lg sm:rounded-none lg:sm:rounded-r-lg shadow-2xl  border-2 border-[#5b5b5b] outline-none ring-0 ${
                 info.avatar !== ""
                   ? ""
                   : "bg-gradient-to-r from-gray-300 via-gray-200 to-white animate-pulse  overflow-hidden"

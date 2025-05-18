@@ -44,9 +44,10 @@ export const addMember = async (request, response) => {
     });
     await newMember.save();
 
+    const { password: _, ...rest } = newMember._doc;
     return response
       .status(201)
-      .json({ message: "Member added successfully!", member: newMember });
+      .json({ message: "Member added successfully!", member: rest });
   } catch (error) {
     console.error("addMember error:", error);
     return response
@@ -73,15 +74,16 @@ export const login = async (request, response) => {
     const validPass = await bcrypt.compare(password, member.password);
     if (validPass) {
       const token = createToken(member.id);
+      const { password: _, ...rest } = member._doc;
       remember
         ? response
             .status(201)
             .cookie("jwt", token, loginHearders)
-            .json({ message: "welcome " + member.name + "!", member })
+            .json({ message: "welcome " + member.name + "!", member: rest })
         : response
             .status(201)
             .cookie("jwt", token, { httpOnly: true })
-            .json({ message: "welcome " + member.name + "!", member });
+            .json({ message: "welcome " + member.name + "!", member: rest });
     } else {
       return response.status(400).json({ message: "invalide password!" });
     }

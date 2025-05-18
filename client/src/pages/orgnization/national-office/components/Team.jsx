@@ -10,7 +10,7 @@ const Team = () => {
 
   if (!members) {
     return (
-      <div className="flex items-center justify-center h-full my-40">
+      <div className="flex items-center justify-center h-[calc(100vh_-_500px)] my-40">
         <Spinner aria-label="Extra large spinner example" size="xl" />
       </div>
     );

@@ -8,13 +8,14 @@ import {
 } from "../controllers/postController.js";
 
 import upload from "../middlewares/fileUpload.js";
+import { authenticate } from "../middlewares/auth.js";
 
 const postRouter = express.Router();
 
-postRouter.post("/", upload.single("image"), createPost);
+postRouter.post("/", upload.single("image"), authenticate, createPost);
 postRouter.get("/", getAllPosts);
 postRouter.get("/:id", getPostById);
-postRouter.put("/:id", upload.single("image"), updatePost);
-postRouter.delete("/:id", deletePost);
+postRouter.put("/:id", upload.single("image"), authenticate, updatePost);
+postRouter.delete("/:id", authenticate, deletePost);
 
 export default postRouter;

@@ -36,35 +36,40 @@ const Index = () => {
   }, []);
 
   const { members, posts } = useSelector((state) => state.no);
+  const { member } = useSelector((state) => state.auth);
 
   return (
     <div className="">
       <Team />
       <hr className="w-[80%] mx-auto bg-gray-300 h-1 border-0 rounded-2xl" />
 
-      <div className="flex justify-center mt-12">
-        <button
-          onClick={() => {
-            setOpenAdd(!openAdd);
-          }}
-          className="lg:hidden w-[80%] bg-gray-200 text-tertiary px-6 py-2 rounded-lg"
-        >
-          إضافة منشور
-        </button>
-      </div>
+      {member && (
+        <>
+          <div className="flex justify-center mt-12">
+            <button
+              onClick={() => {
+                setOpenAdd(!openAdd);
+              }}
+              className="lg:hidden w-[80%] bg-gray-200 text-tertiary px-6 py-2 rounded-lg"
+            >
+              إضافة منشور
+            </button>
+          </div>
 
-      <Banner
-        child={
-          <button
-            onClick={() => {
-              setOpenAdd(!openAdd);
-            }}
-            className="bg-gray-300  text-tertiary   px-6 py-2 rounded-lg"
-          >
-            إضافة منشور
-          </button>
-        }
-      />
+          <Banner
+            child={
+              <button
+                onClick={() => {
+                  setOpenAdd(!openAdd);
+                }}
+                className="bg-gray-300  text-tertiary   px-6 py-2 rounded-lg"
+              >
+                إضافة منشور
+              </button>
+            }
+          />
+        </>
+      )}
 
       {openAdd && <AddPost />}
       <Posts posts={posts} />

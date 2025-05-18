@@ -1,8 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Spinner } from "flowbite-react";
 
 const SecretairContactInfo = () => {
   const { info } = useSelector((state) => state.sg);
+
+  if (!info) {
+    return (
+      <div className="flex items-center justify-center h-full my-40">
+        <Spinner aria-label="Extra large spinner example" size="xl" />
+      </div>
+    );
+  }
   return (
     <div className="bg-gray-100 my-30  w-[95%] border border-gray-300 rounded-lg px-2 py-8 max-w-3xl mx-auto shadow-lg text-right font-sans">
       <header className="mb-6">

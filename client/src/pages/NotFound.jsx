@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <main className="w-full lg:h-[calc(100vh-23.01rem)] h-[calc(100vh-17.01rem)] place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <main className="w-full lg:h-[calc(100vh_-_23.01rem)] h-[calc(100vh-17.01rem)] place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div className="w-full fixed top-0 left-0 z-11 lg:h-[10rem] h-[6rem]  bg-gradient-to-b from-[#4d80e4] to-[#ffffff]"></div>
       <div className="text-center lg:h-[17.75rem] h-[19.5rem]  ">
         <p className="text-3xl font-bold text-[#4d80e4]">404</p>

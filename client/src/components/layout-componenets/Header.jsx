@@ -42,21 +42,21 @@ const products = [
     name: "فضاء الأمين العام",
     description:
       "يحتوي على مستجدات وتعليمات صادرة عن الأمانة العامة، تقارير دورية، ومذكرات تنظيمية.",
-    target: "organization/secritary-general",
+    target: "/organization/secritary-general",
     icon: UserCircleIcon,
   },
   {
     name: "فضاء المكتب الوطني",
     description:
       "  يتضمن بيانات المكتب الوطني، القرارات المركزية، والمبادرات الوطنية ",
-    target: "organization/national-office",
+    target: "/organization/national-office",
     icon: BuildingOfficeIcon,
   },
   {
     name: "فضاء المكاتب الولائية",
     description:
       " مخصص لتقارير، نشاطات، وتوجيهات المكاتب الولائية حسب كل ولاية   ",
-    target: "organization/provincial-offices",
+    target: "/organization/provincial-offices",
     icon: MapPinIcon,
   },
   {

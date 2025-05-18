@@ -42,16 +42,21 @@ const Post = ({ post }) => {
           )}
         <div className="w-full h-20 flex items-center justify-end px-2 gap-4">
           <div className="flex flex-col items-end justify-center gap-x-2">
-            <h2 className="text-tertiary font-bold">
+            <h2 className="text-tertiary font-bold flex flex-col items-end justify-center">
               {post.author.role == "SG"
                 ? post.author.name
                 : post.author.office.name}
+              <br />
+              <span className="text-xs py-1">
+                <span className="text-gray-700 text-xs ">
+                  {formatDistanceToNow(new Date(post.publishedAt), {
+                    addSuffix: true,
+                  })}
+                </span>
+                <span className="px-2">-</span>
+                <span> {post.author.role == "SG" ? "" : post.author.name}</span>
+              </span>
             </h2>
-            <h4 className="text-gray-700  text-xs">
-              {formatDistanceToNow(new Date(post.publishedAt), {
-                addSuffix: true,
-              })}
-            </h4>
           </div>
           <img
             src={

@@ -1,5 +1,5 @@
 import express from "express";
-import { authenticate } from "../middlewares/auth.js";
+import { authenticate, authorize } from "../middlewares/auth.js";
 import {
   addMember,
   login,
@@ -12,11 +12,22 @@ import upload from "../middlewares/fileUpload.js";
 
 const authRouter = express.Router();
 
-authRouter.post("/add", upload.single("avatar"), addMember);
+authRouter.post(
+  "/add",
+  upload.single("avatar"),
+  authenticate,
+  authorize,
+  addMember
+);
 authRouter.post("/login", login);
 authRouter.get("/session", authenticate, session);
-authRouter.put("/update/:id", upload.single("avatar"), updateProfile);
+authRouter.put(
+  "/update/:id",
+  upload.single("avatar"),
+  authenticate,
+  updateProfile
+);
 authRouter.post("/logout", authenticate, logout);
-authRouter.delete("/:id", deleteMember);
+authRouter.delete("/:id", authenticate, authorize, deleteMember);
 
 export default authRouter;

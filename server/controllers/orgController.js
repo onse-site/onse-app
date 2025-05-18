@@ -8,10 +8,12 @@ export const getSGdata = async (request, response) => {
     if (!info) {
       return response.status(404).json({ message: "No SG found!" });
     }
-    const posts = await PostModel.find({ author: info._id }).populate("author");
-    posts
-      ? response.status(200).json({ info, posts })
-      : response.status(404).json({ message: "No posts found!" });
+    const posts = await PostModel.find({ author: info._id })
+      .populate("author", "_id name avatar role")
+      .lean();
+
+    const { password: _, ...rest } = info._doc;
+    return response.status(200).json({ info: rest, posts });
   } catch (error) {
     console.error("Error fetching data:", error);
     return response.status(500).json({ message: "Internal server error" });
@@ -25,18 +27,19 @@ export const getNOdata = async (request, response) => {
       return response.status(404).json({ message: "No office found!" });
     }
 
-    const members = await MemberModel.find({ office: office._id }).lean();
+    const members = await MemberModel.find({ office: office._id })
+      .select("-password")
+      .lean();
 
     if (!members.length) {
       return response.status(404).json({ message: "No members found!" });
     }
 
-    // populate the office from the members
     const postQueries = members.map((member) =>
       PostModel.find({ author: member._id })
         .populate({
           path: "author",
-          select: "_id name office",
+          select: "_id name office role",
           populate: {
             path: "office",
             select: "name cover",
@@ -75,13 +78,16 @@ export const getPOdata = async (request, response) => {
     if (!office) {
       return response.status(404).json({ message: "No office found!" });
     }
-    const members = await MemberModel.find({ office: office._id }).lean();
+
+    const members = await MemberModel.find({ office: office._id })
+      .select("-password")
+      .lean();
 
     const postQueries = members?.map((member) =>
       PostModel.find({ author: member._id })
         .populate({
           path: "author",
-          select: "_id name office",
+          select: "_id name office role",
           populate: {
             path: "office",
             select: "name cover",
