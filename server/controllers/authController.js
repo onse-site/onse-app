@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import { MemberModel } from "../models/Member.js";
 import { OfficeModel } from "../models/Office.js";
+import { MessageModel } from "../models/Message.js";
 import {
   createToken,
   loginHearders,
@@ -214,6 +215,32 @@ export const deleteMember = async (request, response) => {
       .json({ message: "Member deleted successfully!", member: deletedMember });
   } catch (error) {
     console.error("deleteMember error:", error);
+    return response
+      .status(500)
+      .json({ status: "error", message: "Internal server error" });
+  }
+};
+
+export const saveMessage = async (request, response) => {
+  try {
+    const { name, email, message } = request.body;
+
+    if (!name || !email || !message) {
+      return response.status(400).json({ message: "All fields are required!" });
+    }
+
+    const newMessage = new MessageModel({
+      sender: name,
+      contact: email,
+      content: message,
+    });
+    await newMessage.save();
+
+    return response
+      .status(201)
+      .json({ message: "Message sent successfully!", message: newMessage });
+  } catch (error) {
+    console.error("saveMessage error:", error);
     return response
       .status(500)
       .json({ status: "error", message: "Internal server error" });

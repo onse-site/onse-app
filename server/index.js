@@ -26,8 +26,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api", apiRoutes);
-app.get("*any", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+app.get("*any", (request, response) => {
+  response.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 const PORT = process.env.PORT || 8080;

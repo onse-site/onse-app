@@ -5,7 +5,35 @@ import {
   EnvelopeIcon,
 } from "@heroicons/react/24/outline";
 
+import api from "../../api/axios";
+import { useNotification } from "../../hooks/Notification";
+
 const ContactUs = () => {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [message, setMessage] = React.useState("");
+  const { showNotification } = useNotification();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await api.post("api/auth/contact", {
+        name: name,
+        email: email,
+        message: message,
+      });
+      if (response.status === 201) {
+        showNotification("تم إرسال الرسالة بنجاح", "green");
+        setName("");
+        setEmail("");
+        setMessage("");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      showNotification("فشل إرسال الرسالة. حاول مرة أخرى.", "red");
+    }
+  };
+
   return (
     <section
       className="bg-white rounded-lg mx-5 my-40 p-10 shadow-lg lg:w-[50%] lg:mx-auto border-1 border-[#5b5b5b] outline-none ring-0 "
@@ -57,6 +85,8 @@ const ContactUs = () => {
               type="text"
               placeholder="اسمك الكامل"
               className="w-full h-12 px-4 text-right text-gray-600 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -64,12 +94,18 @@ const ContactUs = () => {
               type="text"
               placeholder="عنوانك الالكتروني او رقم هاتفك "
               className="w-full h-12 text-right px-4 text-gray-600 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className="mb-4">
             <textarea
               placeholder="ما الذي يدور في ذهنك؟"
               className="w-full text-right h-28 px-4 py-2 text-gray-600 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
             ></textarea>
           </div>
           <div className="text-center">
@@ -77,6 +113,8 @@ const ContactUs = () => {
               type="submit"
               value="تواصل معنا"
               className="px-6 py-2 text-white bg-blue-500 rounded-md cursor-pointer hover:opacity-90 transition-opacity"
+              onClick={handleSubmit}
+              disabled={!name || !email || !message}
             />
           </div>
         </form>

@@ -21,8 +21,9 @@ const Carousel = () => {
           throw new Error("Failed to fetch posts");
         }
 
-        const slicedPosts = response.data.slice(0, 10);
-        setPosts(slicedPosts);
+        const shuffledPosts = response.data.sort(() => 0.5 - Math.random());
+        const randomPosts = shuffledPosts.slice(0, 10);
+        setPosts(randomPosts);
       } catch (error) {
         setPosts([post, post, post, post, post]);
         console.error("Error fetching posts:", error);

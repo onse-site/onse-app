@@ -76,8 +76,12 @@ const products = [
   },
 ];
 const callsToAction = [
-  { name: "اتصل بالفريق", target: "#", icon: PhoneIcon },
-  { name: "دخول الأعضاء ", target: "#", icon: ArrowRightOnRectangleIcon },
+  { name: "اتصل بالفريق", target: "", icon: PhoneIcon },
+  {
+    name: "لوحة التحكم",
+    target: "/dashboard",
+    icon: ArrowRightOnRectangleIcon,
+  },
 ];
 
 export default function Header() {
@@ -189,10 +193,16 @@ export default function Header() {
               </div>
               <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
                 {callsToAction.map((item) => (
-                  <button
+                  <a
                     key={item.name}
-                    href={item.href}
-                    className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
+                    href={item.target}
+                    className={`${
+                      member?.role === "AD"
+                        ? "flex"
+                        : item.target === "/dashboard" && member?.role !== "OP"
+                        ? "hidden"
+                        : "flex"
+                    }   items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100`}
                     onClick={() => {
                       if (item.name === "دخول الأعضاء ") {
                         setOpenLoginForm(true);
@@ -204,7 +214,7 @@ export default function Header() {
                       className="size-5 flex-none text-gray-400"
                     />
                     {item.name}
-                  </button>
+                  </a>
                 ))}
               </div>
             </PopoverPanel>
@@ -371,6 +381,16 @@ export default function Header() {
                         >
                           تواصل
                         </Link>
+                        {member?.role === "OP" ||
+                          (member?.role === "AD" && (
+                            <a
+                              to="/dashboard"
+                              className="mx-2 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-300"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              لوحة التحكم
+                            </a>
+                          ))}
                       </div>
                     )}
                   </Disclosure>

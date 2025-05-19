@@ -4,7 +4,10 @@ import path from "path";
 const storage = multer.diskStorage({
   destination: function (request, file, cb) {
     let uploadPath = "uploads/";
-    if (request.baseUrl.includes("auth")) {
+    if (
+      request.baseUrl.includes("auth") ||
+      request.baseUrl.includes("dashboard")
+    ) {
       uploadPath = "uploads/members/";
     } else if (request.baseUrl.includes("post")) {
       uploadPath = "uploads/posts/";

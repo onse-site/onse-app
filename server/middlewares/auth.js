@@ -10,13 +10,15 @@ export const authenticate = async (request, response, next) => {
       request.member = await MemberModel.findById(memberId)
         .populate("office")
         .exec();
+
       next();
     } catch (error) {
       console.log("authenticate error:", error.message);
-      response.status(401).json({ message: "token faild!" });
+
+      return response.status(401).json({ message: "token faild!" });
     }
   } else {
-    response.status(401).json({ message: "member not authenticated!" });
+    return response.status(401).json({ message: "member not authenticated!" });
   }
 };
 

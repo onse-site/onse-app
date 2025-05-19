@@ -32,7 +32,7 @@ export const NotificationProvider = ({ children }) => {
           } border-2 rounded-lg shadow-sm  transform transition-transform duration-500 ease-in-out`}
           role="alert"
         >
-          <div className="ps-4 text-sm font-normal text-right text-tertiary">
+          <div className="px-4 text-sm font-normal text-right text-tertiary">
             {notification.message}
           </div>
           <svg
