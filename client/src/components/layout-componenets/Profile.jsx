@@ -101,7 +101,7 @@ const Profile = () => {
                 <Link
                   to={`/organization/edit-profile/${member._id}`}
                   type="button"
-                  className="text-gray-800 text-center w-full my-2 bg-gray-200 hover:bg-gray-300 focus:ring-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 my-2 "
+                  className="text-gray-800 text-center w-full bg-gray-200 hover:bg-gray-300 focus:ring-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 my-2 "
                 >
                   تعديل الملف الشخصي
                 </Link>
