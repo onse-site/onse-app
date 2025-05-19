@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { OfficeModel } from "../../models/Office.js";
 import dotenv from "dotenv";
 dotenv.config({ path: "../../.env" });
-const MONGO_URI = process.env.DATABASE_URI;
+const MONGO_URI = process.env.MONGODB_URI;
 
 mongoose
   .connect(MONGO_URI)
@@ -16,6 +16,11 @@ mongoose
   });
 
 const officesData = [
+  {
+    name: "    المكتب الوطني ",
+    phone: "0000000000",
+    email: "email@national.dz",
+  },
   {
     name: "المكتب الولائي - أدرار",
     phone: "0000000000",
@@ -270,6 +275,3 @@ function seedData() {
       process.exit(1);
     });
 }
-
-// add function for national office
-//682616ecbd660747f6c38fed

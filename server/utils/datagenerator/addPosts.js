@@ -4,7 +4,7 @@ import { OfficeModel } from "../../models/Office.js";
 import { MemberModel } from "../../models/Member.js";
 import dotenv from "dotenv";
 dotenv.config({ path: "../../.env" });
-const MONGO_URI = process.env.DATABASE_URI;
+const MONGO_URI = process.env.MONGODB_URI;
 
 mongoose.set("strictQuery", false);
 
@@ -12,7 +12,7 @@ mongoose
   .connect(MONGO_URI)
   .then(() => {
     console.log("MongoDB connected successfully");
-    /*    seedPosts() */
+    seedPosts();
     /*  addUserPosts("68273f55066cb58a6964780c"); */
     /*  addNationalOfficePosts(); */
   })

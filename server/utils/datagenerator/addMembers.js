@@ -4,16 +4,16 @@ import { OfficeModel } from "../../models/Office.js";
 import { MemberModel } from "../../models/Member.js";
 import dotenv from "dotenv";
 dotenv.config({ path: "../../.env" });
-const MONGO_URI = process.env.DATABASE_URI;
 
+const MONGO_URI = process.env.MONGODB_URI;
 mongoose.set("strictQuery", false);
 
 mongoose
   .connect(MONGO_URI)
   .then(() => {
     console.log("MongoDB connected successfully");
-    /* seedMembers(); */
-    /* addTenMembersToOffice("682616ecbd660747f6c38fed"); */
+    seedMembers();
+    /*  addTenMembersToOffice("682bbe6c4f81659c07ae707c"); */
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err);
