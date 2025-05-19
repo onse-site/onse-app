@@ -18,7 +18,7 @@ const app = express();
 dotenv.config();
 DB_Connection();
 
-app.use(cors(CorsOptins));
+app.use(cors(CorsOptions));
 app.use(cookieParser());
 app.use(express.json());
 
