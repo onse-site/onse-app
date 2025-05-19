@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf ./server/public/* && mkdir -p ./server/public/dashboard/ && cd client/dashboard && npm run build && cp -r dist/* ../../server/public/dashboard/ && cd ../ && npm run build && cp -r dist/* ../server/public/",
-    "dev": "concurrently \"(cd client && npm run build && cp -r dist/* ../server/public/)\" \"(cd server && npm run server)\""
+    "build": "rm -rf ./server/public/* && mkdir -p ./server/public/dashboard/ && cd client/dashboard && npm run build && cp -r dist/* ../../server/public/dashboard/ && cd ../ && npm run build && cp -r dist/* ../server/public/ && cd ../server && npm run build",
+    "dev": "concurrently \"(cd client && npm run build && cp -r dist/* ../server/public/)\" \"(cd server && npm run server)\"",
+    "start": "cd server && npm run server"
   },
   "keywords": [],
   "author": "",
