@@ -18,7 +18,7 @@ export default function EcommerceMetrics() {
   useEffect(() => {
     const fetchStatics = async () => {
       try {
-        const response = await api.get("api/dashboard/statics");
+        const response = await api.get("/api/dashboard/statics");
         if (response.status !== 200) {
           throw new Error("error");
         }

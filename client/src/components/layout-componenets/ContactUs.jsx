@@ -17,7 +17,7 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post("api/auth/contact", {
+      const response = await api.post("/api/auth/contact", {
         name: name,
         email: email,
         message: message,

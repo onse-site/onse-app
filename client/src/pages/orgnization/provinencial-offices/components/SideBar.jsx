@@ -16,7 +16,7 @@ const SideBar = () => {
   useEffect(() => {
     const ftechOffices = async () => {
       try {
-        const response = await api.get("api/org/provincial-offices");
+        const response = await api.get("/api/org/provincial-offices");
         if (response.status !== 200) {
           throw new Error("Failed to fetch data");
         }

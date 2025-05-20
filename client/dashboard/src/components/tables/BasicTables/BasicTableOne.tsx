@@ -30,7 +30,7 @@ export default function BasicTableOne() {
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const response = await api.get("api/dashboard/members");
+        const response = await api.get("/api/dashboard/members");
         if (response.status !== 200) {
           throw new Error("error");
         }

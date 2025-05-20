@@ -16,7 +16,7 @@ const Carousel = () => {
   React.useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await api.get("api/post");
+        const response = await api.get("/api/post");
         if (response.status !== 200) {
           throw new Error("Failed to fetch posts");
         }

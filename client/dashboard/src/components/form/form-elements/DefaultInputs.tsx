@@ -54,7 +54,7 @@ export default function DefaultInputs() {
   useEffect(() => {
     const fetchOffices = async () => {
       try {
-        const response = await api.get("api/dashboard/offices");
+        const response = await api.get("/api/dashboard/offices");
         if (response.status !== 200) {
           throw new Error("Error fetching offices");
         }
@@ -97,7 +97,7 @@ export default function DefaultInputs() {
     event.preventDefault();
     const formData = collectFormData();
     try {
-      const response = await api.post("api/dashboard/member", formData, {
+      const response = await api.post("/api/dashboard/member", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

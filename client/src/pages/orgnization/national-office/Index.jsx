@@ -20,7 +20,7 @@ const Index = () => {
   useEffect(() => {
     const fetchNO = async () => {
       try {
-        const response = await api.get("api/org/national-office");
+        const response = await api.get("/api/org/national-office");
         if (response.status !== 200) {
           throw new Error("Failed to fetch data");
         }

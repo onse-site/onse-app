@@ -11,7 +11,7 @@ const Head = () => {
   useEffect(() => {
     const fetchSG = async () => {
       try {
-        const response = await api.get("api/org/secretary-general");
+        const response = await api.get("/api/org/secretary-general");
         if (response.status !== 200) {
           throw new Error("Failed to fetch info");
         }

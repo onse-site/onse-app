@@ -28,7 +28,7 @@ export default function BasicTableOne() {
   useEffect(() => {
     const fetchOffices = async () => {
       try {
-        const response = await api.get("api/dashboard/messages");
+        const response = await api.get("/api/dashboard/messages");
         if (response.status !== 200) {
           throw new Error("error");
         }

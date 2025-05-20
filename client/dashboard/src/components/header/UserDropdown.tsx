@@ -26,7 +26,7 @@ export default function UserDropdown() {
     const checkMemberSession = async (): Promise<boolean> => {
       try {
         // Make a GET request to /auth/session
-        const response = await api.get("api/auth/session");
+        const response = await api.get("/api/auth/session");
         // Check if response.data.member exists and is truthy
         // Adjust 'response.data.member' if your server response structure is different
         setMemebr(response.data.member);

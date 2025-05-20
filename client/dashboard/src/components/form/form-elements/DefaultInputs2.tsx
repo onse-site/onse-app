@@ -36,7 +36,7 @@ export default function DefaultInputs() {
     }
 
     try {
-      const response = await api.post("api/dashboard/office", formData, {
+      const response = await api.post("/api/dashboard/office", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
