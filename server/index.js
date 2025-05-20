@@ -8,7 +8,7 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import apiRoutes from "./routes/api.js";
 import DB_Connection from "./config/DB_Connection.js";
-import CorsOptins from "./config/CORS_Config.js";
+import CorsOptions from "./config/CORS_Config.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

@@ -4,7 +4,7 @@ import { OfficeModel } from "../../models/Office.js";
 import { MemberModel } from "../../models/Member.js";
 import dotenv from "dotenv";
 dotenv.config({ path: "../../.env" });
-const MONGO_URI = process.env.MONGODB_URI;
+const MONGO_URI = process.env.DATABASE_URI;
 
 mongoose.set("strictQuery", false);
 
