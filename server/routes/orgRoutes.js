@@ -9,7 +9,7 @@ import {
 const orgRouter = express.Router();
 
 orgRouter.get("/secretary-general", getSGdata);
-orgRouter.get("/national-office/", getNOdata);
+orgRouter.get("/national-office", getNOdata);
 orgRouter.get("/provincial-offices", getAllPOdata);
 orgRouter.get("/provincial-offices/:id", getPOdata);
 

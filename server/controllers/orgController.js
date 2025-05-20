@@ -22,7 +22,9 @@ export const getSGdata = async (request, response) => {
 
 export const getNOdata = async (request, response) => {
   try {
-    const office = await OfficeModel.findOne({ name: "المكتب الوطني" }).exec();
+    const office = await OfficeModel.findOne({
+      email: "email@national.dz",
+    }).exec();
     if (!office) {
       return response.status(404).json({ message: "No office found!" });
     }
