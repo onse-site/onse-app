@@ -36,7 +36,7 @@ This project consists of a client-side application, a server-side application, a
 
 ### Development
 
-To run the client and server concurrently for development (which includes building the client and copying assets to the server's public folder):
+To run the client and server concurrently For development (which includes building the client and copying assets to the server's public folder):
 
 ```sh
 npm run dev
