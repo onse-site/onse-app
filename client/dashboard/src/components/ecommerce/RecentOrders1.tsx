@@ -114,7 +114,7 @@ export default function BasicTableOne() {
                       </div>
                     </div>
                   </TableCell>
-                  <TableCell className="px-4 w-30 py-3 text-gray-500 text-start text-theme-sm dark:text-gray-400">
+                  <TableCell className="px-4 w-50 py-3 text-gray-500 text-start text-theme-sm dark:text-gray-400">
                     {member.office?.name}
                   </TableCell>
                   <TableCell className="px-4 py-3 text-gray-500 text-start text-theme-sm dark:text-gray-400">
