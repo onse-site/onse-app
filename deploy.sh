@@ -16,7 +16,7 @@ if [ $? -eq 0 ]; then
     git commit -m "$commit_message"
 
     echo "🚀 Pushing to origin main..."
-    git push origin main
+    git push origin master
     echo "✅ Push completed."
 else
     echo "❌ Build failed. Aborting Git operations."
