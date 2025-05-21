@@ -14,17 +14,14 @@ const ManegeProfile = () => {
 
   const { member } = useSelector((state) => state.auth);
 
+  React.useEffect(() => {
+    password === confirmPassword
+      ? setSamePassword(true)
+      : setSamePassword(false);
+  }, [password, confirmPassword]);
+
   const handleUpdateProfile = (e) => {
     e.preventDefault();
-
-    console.log({
-      name,
-      email,
-      password,
-      confirmPassword,
-      about,
-      image,
-    });
 
     const formData = new FormData();
     formData.append("name", name);
@@ -55,11 +52,15 @@ const ManegeProfile = () => {
     }
   };
 
-  React.useEffect(() => {
-    password === confirmPassword
-      ? setSamePassword(true)
-      : setSamePassword(false);
-  }, [password, confirmPassword]);
+  if (!member) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <h1 className="text-2xl font-bold text-gray-900">
+          لم يتم العثور على المستخدم
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <div className="my-30 ">

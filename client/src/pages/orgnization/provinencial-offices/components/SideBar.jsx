@@ -77,7 +77,7 @@ const SideBar = () => {
         : "hidden lg:block"
     }
     lg:absolute lg:w-[20rem] lg:top-[2rem] lg:right-4 lg:z-2
-    w-[92%] top-[11.5rem]  h-full
+    w-[92%] top-[11.5rem]  h-140 lg:h-full
   `}
         aria-label="Sidebar"
       >
@@ -95,7 +95,7 @@ const SideBar = () => {
               alt="Flowbite Logo"
             />
           </Link>
-          <ul className="space-y-2 font-medium">
+          <ul className="space-y-2  font-medium">
             {offices.map((office, index) => (
               <Office
                 key={index}
