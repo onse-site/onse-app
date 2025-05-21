@@ -362,7 +362,7 @@ export default function Header() {
                           leaveTo="transform opacity-0 -translate-y-2"
                         >
                           <DisclosurePanel className="mt-2 pr-5 space-y-2">
-                            {[...products, ...callsToAction].map((item) => (
+                            {products.map((item) => (
                               <DisclosureButton
                                 key={item.name}
                                 as="a"
