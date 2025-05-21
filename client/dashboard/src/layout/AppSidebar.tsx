@@ -54,20 +54,20 @@ const navItems: NavItem[] = [
     name: "Pages",
     icon: <PageIcon />,
     subItems: [
-      { name: "Home page", path: "http://localhost:3000/", pro: false },
+      { name: "Home page", path: "https://onse.abdeldjalile.me", pro: false },
       {
         name: "Secritaire general page",
-        path: "http://localhost:3000/organization/secritary-general",
+        path: "https://onse.abdeldjalile.me/organization/secritary-general",
         pro: false,
       },
       {
         name: "National office page",
-        path: "http://localhost:3000/organization/national-office",
+        path: "https://onse.abdeldjalile.me/organization/national-office",
         pro: false,
       },
       {
         name: "Provincial offices Pages",
-        path: "http://localhost:3000/organization/provincial-offices",
+        path: "https://onse.abdeldjalile.me/organization/provincial-offices",
         pro: false,
       },
     ],

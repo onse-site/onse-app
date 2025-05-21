@@ -3,10 +3,8 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
   "http://localhost:5500",
-  "https://onse-app.onrender.com/",
-  "https://onse-app.onrender.com",
-  "http://onse.abdeldjalile.me/",
   "http://onse.abdeldjalile.me",
+  "https://onse.abdeldjalile.me",
 ];
 
 const CorsOptions = {

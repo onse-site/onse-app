@@ -3,6 +3,8 @@ import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import api from "../../api/axios";
 import { useSelector } from "react-redux";
 
+import { useNotification } from "../../hooks/Notification";
+
 const ManegeProfile = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,13 +16,15 @@ const ManegeProfile = () => {
 
   const { member } = useSelector((state) => state.auth);
 
+  const { showNotification } = useNotification();
+
   React.useEffect(() => {
     password === confirmPassword
       ? setSamePassword(true)
       : setSamePassword(false);
   }, [password, confirmPassword]);
 
-  const handleUpdateProfile = (e) => {
+  const handleUpdateProfile = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
@@ -32,20 +36,25 @@ const ManegeProfile = () => {
     if (image) {
       formData.append("avatar", image);
     }
+
     try {
-      const response = api.put(`/api/auth/update/${member.id}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await api.put(
+        `/api/auth/update/${member._id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       if (response.status === 200) {
-        console.log("تم تعديل الملف الشخصي بنجاح");
+        showNotification("تم تعديل الملف الشخصي بنجاح", "green");
       }
       if (response.status === 400) {
-        console.log("خطأ في تعديل الملف الشخصي");
+        showNotification("خطأ في تعديل الملف الشخصي", "red");
       }
       if (response.status === 500) {
-        console.log("خطأ في الخادم");
+        showNotification("خطأ في الخادم", "red");
       }
     } catch (error) {
       console.log("error", error);

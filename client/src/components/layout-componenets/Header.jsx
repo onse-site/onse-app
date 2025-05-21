@@ -140,7 +140,11 @@ export default function Header() {
         {/* Login link moved to the left */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-start">
           {isAuthenticated ? (
-            <Profile />
+            <Profile
+              closeFun={() => {
+                setMobileMenuOpen(!mobileMenuOpen);
+              }}
+            />
           ) : (
             <button
               onClick={() => setOpenLoginForm(true)}
