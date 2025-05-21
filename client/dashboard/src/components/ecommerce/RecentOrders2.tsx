@@ -98,7 +98,7 @@ export default function BasicTableOne() {
                         <img width={40} height={40} src={office.cover} alt="" />
                       </div>
                       <div>
-                        <span className="block font-medium text-gray-800 text-theme-sm w-[10rem] dark:text-white/90">
+                        <span className="block whitespace-nowrap font-medium text-gray-800 text-theme-sm w-[10rem] dark:text-white/90">
                           {office.name}
                         </span>
                         {/*  <span className="block text-gray-500 text-theme-xs dark:text-gray-400">
