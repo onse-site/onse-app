@@ -9,7 +9,6 @@ import {
 import Badge from "../ui/badge/Badge";
 import { useEffect, useState } from "react";
 import api from "../../api/axios";
-import { Link } from "react-router";
 
 export default function BasicTableOne() {
   const [memebrs, setMembers] = useState([
@@ -45,12 +44,12 @@ export default function BasicTableOne() {
     <>
       <div className="px-4 font-bold text-2xl text-gray-800 w-full  flex items-center justify-between">
         <span>Recnet Joined Memebrs </span>
-        <Link
-          to="/basic-tables"
+        <a
+          href="/basic-tables"
           className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-theme-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200"
         >
           See all
-        </Link>
+        </a>
       </div>
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
         <div className="max-w-full overflow-x-auto">

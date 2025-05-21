@@ -252,8 +252,8 @@ const AppSidebar: React.FC = () => {
               <ul className="mt-2 space-y-1 ml-9">
                 {nav.subItems.map((subItem) => (
                   <li key={subItem.name}>
-                    <Link
-                      to={subItem.path}
+                    <a
+                      href={subItem.path}
                       className={`menu-dropdown-item ${
                         isActive(subItem.path)
                           ? "menu-dropdown-item-active"
@@ -285,7 +285,7 @@ const AppSidebar: React.FC = () => {
                           </span>
                         )}
                       </span>
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>
