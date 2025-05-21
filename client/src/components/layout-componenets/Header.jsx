@@ -387,7 +387,7 @@ export default function Header() {
                         </Link>
                         {(member?.role === "OP" || member?.role === "AD") && (
                           <a
-                            href="/dashboard"
+                            href="https://onse.abdeldjalile.me/dashboard"
                             className="mx-2 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-300"
                             onClick={() => setMobileMenuOpen(false)}
                           >
